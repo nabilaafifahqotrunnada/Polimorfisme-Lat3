@@ -1,0 +1,24 @@
+package lat3;
+
+/**
+ *
+ * @author nabila
+ */
+public class PembayaranGaji {
+ public int hitungGaji(Pegawai peg) {
+     int uang = peg.gaji();
+     if(peg instanceof Direktur) 
+         uang += ((Direktur)peg).tunjangan();
+         if (peg instanceof Staf) 
+             uang += ((Staf)peg).Bonus();
+     return uang;
+ }   
+    public static void main(String[] args) {
+        PembayaranGaji pg = new PembayaranGaji();
+        Staf Lucas =new Staf();
+        Direktur Nabila = new Direktur();
+        System.out.println("Gaji yang dibayarkan untuk Staf = " + pg.hitungGaji(Lucas));
+        System.out.println("Gaji yang dibayarkan kepada direktur = " + pg.hitungGaji(Nabila));
+    }
+}
+
